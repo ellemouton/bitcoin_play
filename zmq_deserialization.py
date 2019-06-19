@@ -27,19 +27,32 @@ amountLen = 8*2
 witFlagPresent = False
 
 class inTx:
-    def __init__(self, txid, index, scriptLen, script, seqNo):
+    def __init__(self, txid, index, script, seqNo):
+
+        if(int(txid,16)==0):
+            self.coinbase = True
+        else:
+            self.coinbase = False
+
         self.txid = txid
         self.index = index
-        self.scriptLen = scriptLen
         self.script = script
         self.sequenceNo = seqNo
+        
+
     def show(self):
-        print("{")
-        print("\ttxid: "+ str(self.txid))
-        print("\tvout: "+ str(self.index))
-        print("\tscriptSig (hex): "+ self.script)
-        print("\tsequence: "+ str(self.sequenceNo))
-        print("}")
+        if(self.coinbase==False):
+            print("{")
+            print("\ttxid: "+ str(self.txid))
+            print("\tvout: "+ str(self.index))
+            print("\tscriptSig (hex): "+ self.script)
+            print("\tsequence: "+ str(self.sequenceNo))
+            print("}")
+        else:
+            print("{")
+            print("\tcoinbase: "+ str(self.script))
+            print("\tsequence: "+ str(self.sequenceNo))
+            print("}")
 
 class outTx:
     def __init__(self, amount, scriptLen, script):
@@ -88,12 +101,10 @@ def calcVarLen(rawtxid):
 
 
 
-
 def extractInfo(rawtxid):
     '''versionNum(4 bytes)|optionalFlag(if present it is '0001' and indicates witness data)
         |inCount(1-9 bytes)|listofInputs|outCount(1-9 bytes)|listOfOutputs|witnesses(var(see segwit))|locktime(4 bytes)'''
     global witFlagPresent
-
 
     '''Get version num and check for optional flag indicating witness data'''
     versionNo = int(reverseEndian(rawtxid[0:versionNoLen]), 16); rawtxid = rawtxid[versionNoLen:]
@@ -105,7 +116,7 @@ def extractInfo(rawtxid):
     
     ''' extract inputs'''
     inputCount, rawtxid = calcVarLen(rawtxid)
-    
+
     inputTxArray = []
     
     for i in range(0, inputCount):
@@ -114,9 +125,9 @@ def extractInfo(rawtxid):
         in_scriptLen, rawtxid = calcVarLen(rawtxid); in_scriptLen = in_scriptLen*2
         in_script = rawtxid[0:in_scriptLen]; rawtxid = rawtxid[in_scriptLen:]
         in_seqNum = int(reverseEndian(rawtxid[0:seqLen]),16); rawtxid = rawtxid[seqLen:]
-        inputObj = inTx(in_id, in_index, in_scriptLen, in_script, in_seqNum)
+        inputObj = inTx(in_id, in_index, in_script, in_seqNum)
         inputTxArray.append(inputObj)
-    
+
     ''' extract outputs'''
     outputCount, rawtxid = calcVarLen(rawtxid)
     outputTxArray = []
@@ -149,10 +160,13 @@ def calcFees(vin, vout):
 
     #total input    
     for i in range(0, len(vin)):
-        txid = getattr(vin[i], 'txid')
-        rawtxid = p.getrawtransaction(txid)
-        in_vin, in_vout = extractInfo(rawtxid)
-        inputs+=getattr(in_vout[getattr(vin[i], 'index')], 'amount')
+        if(getattr(vin[i], 'coinbase')==True):
+            print("!!!Still need to figure out coinbase tx scripts!!!")
+        else:
+            txid = getattr(vin[i], 'txid')
+            rawtxid = p.getrawtransaction(txid)
+            in_vin, in_vout = extractInfo(rawtxid)
+            inputs+=getattr(in_vout[getattr(vin[i], 'index')], 'amount')
 
     return inputs-outputs
 
