@@ -41,27 +41,20 @@ class Tx:
 
     def __repr__(self):
         tx_ins = ''
-        for tx_in in self.tx_ins:
-            tx_ins += tx_in.__repr__() + '\n'
+        for i, tx_in in enumerate(self.tx_ins, start = 0):
+            tx_ins+= str(i)+":\t"+tx_in.__repr__() + '\n'
         tx_outs = ''
-        for tx_out in self.tx_outs:
-            tx_outs += tx_out.__repr__() + '\n'
-        '''return 'tx: {}\nversion: {}\ntx_ins:\n{}tx_outs:\n{}locktime: {}'.format(
-            self.id(),
-            self.version,
-            tx_ins,
-            tx_outs,
-            self.locktime,
-        )'''
+        for i, tx_out in enumerate(self.tx_outs, start=0):
+            tx_outs += str(i)+":\t"+tx_out.__repr__() + '\n'
 
-        s = "\n==============================Transaction Info ===============================\n"
+        s = "\n==============================Transaction Info ==================================\n"
         s += "TxID:     " + str(self.id())
         s += "\nVersion:  " + str(self.version)
         s += "\nTx_ins:\n" + tx_ins
         s += "\nTx_outs:\n"+ tx_outs
         s += "\nLocktime:"+ str(self.locktime)
         s += "\nTotal Fee: " + str(self.fee())
-        s += "\n=============================================================================\n"
+        s += "\n=================================================================================\n"
         return s
 
 
@@ -342,10 +335,15 @@ class TxIn:
         self.sequence = sequence
 
     def __repr__(self):
-        return '{}:{}'.format(
+        ''' return '{}:{}'.format(
             self.prev_tx.hex(),
             self.prev_index,
-        )
+        )'''
+        s = str(self.prev_tx.hex())+":"+str(self.prev_index)+"\n"
+        s += "\tScriptPubKey: "+str(self.script_pubkey(testnet = True))+"\n"
+        s += "\tScriptSig:  "+str(self.script_sig)+"\n"
+        s += "\tAmount: "+str(self.value(testnet = True))
+        return s
 
     @classmethod
     def parse(cls, s):
@@ -373,20 +371,14 @@ class TxIn:
         '''Get the outpoint value by looking up the tx hash
         Returns the amount in satoshi
         '''
-        # use self.fetch_tx to get the transaction
         tx = self.fetch_tx(testnet=testnet)
-        # get the output at self.prev_index
-        # return the amount property
         return tx.tx_outs[self.prev_index].amount
 
     def script_pubkey(self, testnet=False):
         '''Get the ScriptPubKey by looking up the tx hash
         Returns a Script object
         '''
-        # use self.fetch_tx to get the transaction
         tx = self.fetch_tx(testnet=testnet)
-        # get the output at self.prev_index
-        # return the script_pubkey property
         return tx.tx_outs[self.prev_index].script_pubkey
 
 
