@@ -29,7 +29,7 @@ class inTx:
 		self.index = index
 		self.script = script
 		self.sequenceNo = seqNo
-		
+
 
 	def show(self):
 		if(self.coinbase==False):
@@ -66,9 +66,9 @@ def reverseEndian(origionalEndHex):
 		return ''.join(reverse)
 	else:
 		print("hex string not multiple of 2")
-	
+
 def calcVarLen(rawtxid):
-	
+
 	code = rawtxid[0:varIntMin]; rawtxid = rawtxid[varIntMin:]
 
 	if(code=="fd"):
@@ -105,12 +105,12 @@ def extractInfo(rawtxid):
 	if(witnessflag == '0001'):
 		witFlagPresent = True
 		rawtxid = rawtxid[4:]
-	
+
 	''' extract inputs'''
 	inputCount, rawtxid = calcVarLen(rawtxid)
 
 	inputTxArray = []
-	
+
 	for i in range(0, inputCount):
 		in_id = reverseEndian(rawtxid[0:txidLen]); rawtxid = rawtxid[txidLen:]
 		in_index = int(reverseEndian(rawtxid[0:txIndexLen]), 16); rawtxid = rawtxid[txIndexLen:]
@@ -150,7 +150,7 @@ def calcFees(vin, vout):
 	for i in range(0, len(vout)):
 		outputs+=getattr(vout[i], 'amount')
 
-	#total input	
+	#total input
 	for i in range(0, len(vin)):
 		if(getattr(vin[i], 'coinbase')==True):
 			print("!!!Still need to figure out coinbase tx scripts!!!")
