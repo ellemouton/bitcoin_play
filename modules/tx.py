@@ -229,7 +229,7 @@ class Tx:
         else:
             script_code = p2pkh_script(tx_in.script_pubkey(self.testnet).cmds[1]).serialize()
         s += script_code
-        s += int_to_little_endian(tx_in.value(), 8)
+        s += int_to_little_endian(tx_in.value(testnet = self.testnet), 8)
         s += int_to_little_endian(tx_in.sequence, 4)
         s += self.hash_outputs()
         s += int_to_little_endian(self.locktime, 4)
