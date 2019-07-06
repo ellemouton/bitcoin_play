@@ -8,7 +8,7 @@ import helper
 import tx
 import script
 from ecc import PrivateKey
-from helper import hash256, little_endian_to_int, decode_base58
+from helper import hash256, little_endian_to_int, decode_base58, SIGHASH_ALL
 from tx import Tx, TxIn, TxOut
 from script import p2pkh_script, Script
 
@@ -24,14 +24,20 @@ def is_unspent(txid, index, proxy):
 
 p = RawProxy(service_port = 18332)
 
-sender_address = createAddress(b'elle.mouton@gmail.com Tranquility Cracks is a hidden gem that many seek but few find')
+# Sender Information
+sender_secret = b'elle.mouton@gmail.com Tranquility Cracks is a hidden gem that many seek but few find'
+secret = little_endian_to_int(hash256(sender_secret))
+private_key = PrivateKey(secret)
+public_key = private_key.point
+sender_address = public_key.address(testnet=True)
+
+# Receiver Information
 receiver_address = createAddress(b'some salt for this receiver address')
 
 # What is in our wallet that we can spend? (this one has 0.01 tBTC)
 tx_in_id = 'acf22005638e60379aa43d4cd2a5eb47a0fa1fefc5883eecf83329a607431d50'
 tx_in_index = 1
 tx_input = TxIn(bytes.fromhex(tx_in_id), tx_in_index)
-
 
 # Checking spentness of the inputs. Should be False
 print("Spentness of input "+str(tx_in_index)+": " + str(is_unspent(tx_in_id,tx_in_index, p)))
@@ -55,13 +61,18 @@ change_output = TxOut(amount = change_amount, script_pubkey = change_script)
 
 #create the Tx object
 tx_obj = Tx(1, [tx_input], [change_output, target_output], 0, True)
-print(tx_obj)
 
 
+#signing the transaction
+z = tx_obj.sig_hash(0) #get sig_hash of the first input
+der = private_key.sign(z).der()
+sig = der + SIGHASH_ALL.to_bytes(1, 'big')
+sec = public_key.sec()
+script_sig = Script([sig, sec])
+tx_obj.tx_ins[0].script_sig = script_sig
+print(tx_obj.serialize().hex())
 
-
-
-
-
+print(sender_address)
+print(receiver_address)
 
 
