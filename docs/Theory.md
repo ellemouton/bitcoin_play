@@ -170,7 +170,7 @@ Entity *B* will sign the commitment transaction proposed by *A* as it is clear t
 
 #### Step 4
 
-*B* receives pre-image, *X*, from *C* and sees that it is now able to claim the 15 satoshis locked to the HTLC output form the commitment transaction proposed by *A*. *B* then sends *X* to *A* and both *A* and *B* update their channel state to reflect the payments.  See figure \ref{fig:light_4} for an illustration of this step.
+*B* receives pre-image, *X*, from *C* and sees that it is now able to claim the 15 satoshis locked to the HTLC output form the commitment transaction proposed by *A*. *B* then sends *X* to *A* and both *A* and *B* update their channel state to reflect the payments.  See figure 6.5 for an illustration of this step.
 
 The final total wallet balances are now as follows:
 
@@ -182,18 +182,16 @@ It is clear that *C* has made 10 satoshis, that *B* has made 5 satoshis in routi
 
 <p align="center">
 <img src="figures/lightning_network/lightning_5.png" alt="Multi-hop payment step 4">
-
+<label>Figure 6.5: Multi-hop payment step 4</label>
 </p>
 
   
 
 [1] Andreas M. Antonopoulos.Mastering Bitcoin. ISBN 9781491954386. O’ReillyMedia, 2017
 
-  
-
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwODcyMzAyLC00MTA4OTUyNjAsLTc4MT
+eyJoaXN0b3J5IjpbODI3OTA4MjE4LC00MTA4OTUyNjAsLTc4MT
 YyNjk5NSwtMTc5OTQ2MjAzOSwtOTc2Mzc1MzM4LC0yMDgyMzQ5
 MDczLDE0NTI0MjU2NTcsMTQ1NTk0MTI2MCwxODU1NzY5NTYzXX
 0=
