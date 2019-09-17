@@ -11,3 +11,6 @@ Elliptic curve cryptography makes use of maths on an elliptic curve using number
 
 [1] Andreas M. Antonopoulos.Mastering Bitcoin. ISBN 9781491954386. O’ReillyMedia, 2017
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEzMDIwMDE5MjVdfQ==
+-->
