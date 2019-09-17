@@ -57,7 +57,7 @@ A different type of transaction called a multi-signature (multi-sig) transaction
 For a Bitcoin transaction to be valid, it must be broadcast to the entire Bitcoin network and this is done by including transactions in the blocks of a public blockchain. This enables any user of the system to validate any transaction and trace back the origins of the transaction inputs as can be seen in figure 4. For a transaction to be included into a block and mined,  it is necessary to incentives the miners by means of transaction fees. In the Bitcoin network, it takes approximately 10 minutes for a block to be mined and added to the blockchain. For these reasons publishing a transaction on the blockchain (an on-chain transaction) is both costly and slow. Using on-chain transactions for micropayment transactions is thus not feasible nor scalable [1]. Payment channels provide a way to perform fast and cheap off-chain transactions and these are discussed next.
 
 <p align="center">
-<img src="figures/blockchain.png" alt="Blockchain" width="500">
+<img src="figures/blockchain.png" alt="Blockchain" width="600">
 <label>Figure 4: Blockchain</label>
 </p>
 
@@ -191,8 +191,8 @@ It is clear that *C* has made 10 satoshis, that *B* has made 5 satoshis in routi
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4NzI5MzQ3OCw4Mjc5MDgyMTgsLTQxMD
-g5NTI2MCwtNzgxNjI2OTk1LC0xNzk5NDYyMDM5LC05NzYzNzUz
-MzgsLTIwODIzNDkwNzMsMTQ1MjQyNTY1NywxNDU1OTQxMjYwLD
-E4NTU3Njk1NjNdfQ==
+eyJoaXN0b3J5IjpbNjA2MzEzNzY3LDgyNzkwODIxOCwtNDEwOD
+k1MjYwLC03ODE2MjY5OTUsLTE3OTk0NjIwMzksLTk3NjM3NTMz
+OCwtMjA4MjM0OTA3MywxNDUyNDI1NjU3LDE0NTU5NDEyNjAsMT
+g1NTc2OTU2M119
 -->
