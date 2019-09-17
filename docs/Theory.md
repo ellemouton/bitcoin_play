@@ -61,11 +61,20 @@ The Lightning Network is made up of nodes connected by payment channels and enab
 
 #### Example
 In this example, the following assumptions can be made. See Figure \ref{fig:light_set_up} for a visualisation of the initial set-up.
-
+* Party $A$ wants to pay party $C$ 10 satoshis
+* Payment channels exists between $A$ and $B$ (100 to $A$ and $20$ to B) and another between $B$ and $C$ (50 to $B$ and 10 to $C$)
+* $B$ charges a 5 satoshi routing fee
+* $A$ has the hash, $H$, which is the hash of a secret pre-image value, $X$, such that $H$ = hash($X$)
+* $A$ knows that $C$, and only $C$, has access to $X$.
+* The initial total wallet balances of each node is as follows:
+	* $A$: 100 satoshis
+	* $B$: 20 + 50 = 70 satoshis
+	* $C$: 10 satoshis
+![Payment channels step 4](figures/payment_channels/pay_chan_4.png)
 
 [1] Andreas M. Antonopoulos.Mastering Bitcoin. ISBN 9781491954386. O’ReillyMedia, 2017
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTMwOTQwMjEsMTg1NTc2OTU2M119
+eyJoaXN0b3J5IjpbLTE0NDU0OTQ1MzUsMTg1NTc2OTU2M119
 -->
