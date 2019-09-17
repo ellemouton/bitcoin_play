@@ -70,11 +70,18 @@ In this example, the following assumptions can be made. See Figure \ref{fig:ligh
 	* $A$: 100 satoshis
 	* $B$: 20 + 50 = 70 satoshis
 	* $C$: 10 satoshis
-![Payment channels step 4](figures/payment_channels/pay_chan_4.png)
+
+![Multi-hop payment set-up](figures/lightning_channel/lightning_1.png)
+
+#### Step 1
+$A$ creates a new commitment transaction with $B$. This commitment transaction spends the funding transaction of the $A-B$ channel and has three outputs:
+* Output 1: 20 satoshi to $B$
+* Output 2: 85 satoshi to $A$
+* Output 3: 15 satoshi to a HTLC that has two clauses and will be spendable by which ever clauses condition is first satisfied. The first clause pays $B$ if $B$ is able to produce the pre-image of $H$. The second clause refunds $A$ if a certain time period, $t$, has passed.
 
 [1] Andreas M. Antonopoulos.Mastering Bitcoin. ISBN 9781491954386. O’ReillyMedia, 2017
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDU0OTQ1MzUsMTg1NTc2OTU2M119
+eyJoaXN0b3J5IjpbLTE2MzA2Mjc1MjMsMTg1NTc2OTU2M119
 -->
