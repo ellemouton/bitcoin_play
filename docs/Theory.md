@@ -117,9 +117,9 @@ In this example, the following assumptions can be made. See Figure 6.1 for a vis
 * *A* has the hash, *H*, which is the hash of a secret pre-image value, *X*, such that *H* = hash(*X*)
 * *A* knows that *C*, and only *C*, has access to *X*.
 * The initial total wallet balances of each node is as follows:
-* *A*: 100 satoshis
-* *B*: 20 + 50 = 70 satoshis
-* *C*: 10 satoshis
+	* *A*: 100 satoshis
+	* *B*: 20 + 50 = 70 satoshis
+	* *C*: 10 satoshis
 
 <p align="center">
 <img src="figures/lightning_network/lightning_1.png" alt="Multi-hop payment set-up">
@@ -191,8 +191,8 @@ It is clear that *C* has made 10 satoshis, that *B* has made 5 satoshis in routi
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA2MzEzNzY3LDgyNzkwODIxOCwtNDEwOD
-k1MjYwLC03ODE2MjY5OTUsLTE3OTk0NjIwMzksLTk3NjM3NTMz
-OCwtMjA4MjM0OTA3MywxNDUyNDI1NjU3LDE0NTU5NDEyNjAsMT
-g1NTc2OTU2M119
+eyJoaXN0b3J5IjpbMzI1NDk2NDQ3LDYwNjMxMzc2Nyw4Mjc5MD
+gyMTgsLTQxMDg5NTI2MCwtNzgxNjI2OTk1LC0xNzk5NDYyMDM5
+LC05NzYzNzUzMzgsLTIwODIzNDkwNzMsMTQ1MjQyNTY1NywxND
+U1OTQxMjYwLDE4NTU3Njk1NjNdfQ==
 -->
