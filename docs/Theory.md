@@ -8,10 +8,10 @@ Bitcoin is a cryptocurrency that allows people to send value (in Bitcoin) to one
 Elliptic curve cryptography makes use of maths on an elliptic curve using numbers defined over a finite field [2]. Figure \ref{fig:ecc_curve} shows the Bitcoin elliptic curve plotted over real-numbers. On such a curve, point scalar multiplication is easy to calculate but point scalar division is impossibly hard to calculate.
 
 <p align="center"> 
-<img src="figures/bitcoin_curve.png" alt="Bitcoin Curve width="300" >
+<img src="figures/bitcoin_curve.png" alt="Bitcoin Curve width="200" >
 </p>
 
-For example, if a publicly known generator point on the curve is $ G=(g_x, g_y) $ and this point is then multiplied by a constant $k$ then another point on the curve can be found: $P=(p_x, p_y)$. Due to the fact that this maths is evaluated over a finite field, it is easy to find point $P$ if both $G$ and $k$ are known but it is not known how to calculate $k$ if $P$ and $G$ are known. This asymmetric property is illustrated in figure \ref{fig:asymmetry_eqn}.
+For example, if a publicly known generator point on the curve is $G=(g_x, g_y)$ and this point is then multiplied by a constant $k$ then another point on the curve can be found: $P=(p_x, p_y)$. Due to the fact that this maths is evaluated over a finite field, it is easy to find point $P$ if both $G$ and $k$ are known but it is not known how to calculate $k$ if $P$ and $G$ are known. This asymmetric property is illustrated in figure \ref{fig:asymmetry_eqn}.
 
 <p align="center"> 
 <img src="figures/eec.jpg" alt="Public-private key asymmetric property" width="200" >
@@ -104,6 +104,6 @@ $B$ signs this commitment transaction and presents it to $C$. See figure \ref{fi
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0Nzg0Njk1OCwtMjA4MjM0OTA3MywxND
-UyNDI1NjU3LDE0NTU5NDEyNjAsMTg1NTc2OTU2M119
+eyJoaXN0b3J5IjpbMzA5MzMxOTQxLC0yMDgyMzQ5MDczLDE0NT
+I0MjU2NTcsMTQ1NTk0MTI2MCwxODU1NzY5NTYzXX0=
 -->
