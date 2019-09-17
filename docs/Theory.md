@@ -36,10 +36,21 @@ For a Bitcoin transaction to be valid, it must be broadcast to the entire Bitcoi
 ![Blockchain](figures/blockchain.jpg)
 
 ### 1.4 Payment Channels
+Payment channels provide a way for two parties to exchange an unlimited number of Bitcoin transactions and do so off-chain. In this section, the aim is to explain the basic setup and use of a payment channel. All details of these steps can be found in reference \parencite{mastering_bitcoin}.
+
+#### Step 1 
+Two parties, $A$ and $B$, decide to set up a payment channel and do this by each of them committing funds to a 2-of-2 multisig (see section \ref{sec:transactions}). Both parties sign this transaction and then broadcast it to the blockchain as an on-chain, funding transaction. This transaction and the future settlement transaction will be the only two transactions that need to be published to the blockchain. In the example in figure \ref{fig:pay_chan_1}, $A$ commits 10 satoshis and $B$ commits 5 satoshis to the channel.
+
+![Payment channels step 1](figures/payment_channels/pay_chan_1.png)
+
+#### Step 12
+Two parties, $A$ and $B$, decide to set up a payment channel and do this by each of them committing funds to a 2-of-2 multisig (see section \ref{sec:transactions}). Both parties sign this transaction and then broadcast it to the blockchain as an on-chain, funding transaction. This transaction and the future settlement transaction will be the only two transactions that need to be published to the blockchain. In the example in figure \ref{fig:pay_chan_1}, $A$ commits 10 satoshis and $B$ commits 5 satoshis to the channel.
+
+![Payment channels step 1](figures/payment_channels/pay_chan_1.png)
 
 [1] Andreas M. Antonopoulos.Mastering Bitcoin. ISBN 9781491954386. O’ReillyMedia, 2017
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3ODE2NTY3NCwxODU1NzY5NTYzXX0=
+eyJoaXN0b3J5IjpbMTg2NDQyNTA4MCwxODU1NzY5NTYzXX0=
 -->
