@@ -142,45 +142,31 @@ In this example, the following assumptions can be made. See Figure 6.1 for a vis
 <label>Figure 6.2: Multi-hop payment step 1</label>
 </p>
 
-  
-
 #### Step 2
 
 Entity *B* will sign the commitment transaction proposed by *A* as it is clear that no money will be lost if it is not able to produce the hash pre-image and that it will gain 15 satoshis if it is able to produce the pre-image. *B* then repeats a similar process with node *C* and sets up a commitment transaction that spends the funding transaction of the *B-C* channel. The outputs of this transaction are as follows:
 
 * **Output 1:** 10 satoshi to *C*
-
 * **Output 2:** 40 satoshi to *B*
-
 * **Output 3:** 10 satoshi to a HTLC that has two clauses and will be spendable by which ever clauses condition is first satisfied. The first clause pays *C* if *C* is able to produce the pre-image of *H*. The second clause refunds *B* if a certain time period, *t*, has passed.
 
-  
-
-*B* signs this commitment transaction and presents it to *C*. See figure \ref{fig:light_2} for an illustration of this step.
-
-  
+*B* signs this commitment transaction and presents it to *C*. See figure 6.3 for an illustration of this step.
 
 <p align="center">
-
 <img src="figures/lightning_network/lightning_3.png" alt="Multi-hop payment step 2">
-
+<label>Figure 6.3: Multi-hop payment step 2</label>
 </p>
 
   
 
 #### Step 3
 
-*C* receives the commitment transaction proposed by *B* and sees that it is safe to sign since *C* has access to the pre-image of *H*, *X*,  and can thus claim the corresponding HTLC output. *C* signs the transaction and sends it back to *B* along with *X* so that *B* can see that C can claim the 10 satoshi committed to the HTLC. Both *B* and *C* update their channel state to reflect this. See figure \ref{fig:light_3} for an illustration of this step.
-
-  
+*C* receives the commitment transaction proposed by *B* and sees that it is safe to sign since *C* has access to the pre-image of *H*, *X*,  and can thus claim the corresponding HTLC output. *C* signs the transaction and sends it back to *B* along with *X* so that *B* can see that C can claim the 10 satoshi committed to the HTLC. Both *B* and *C* update their channel state to reflect this. See figure 6.4 for an illustration of this step.
 
 <p align="center">
-
 <img src="figures/lightning_network/lightning_4.png" alt="Multi-hop payment step 3">
-
+<label>Figure 6.4: Multi-hop payment step 3</label>
 </p>
-
-  
 
 #### Step 4
 
@@ -189,19 +175,12 @@ Entity *B* will sign the commitment transaction proposed by *A* as it is clear t
 The final total wallet balances are now as follows:
 
 * *A*: 85 satoshis
-
 * *B*: 35 + 40 = 70 satoshis
-
 * *C*: 20 satoshis
-
-  
 
 It is clear that *C* has made 10 satoshis, that *B* has made 5 satoshis in routing fees and that *A* has spent 15 satoshis and has successfully paid *C* 10 satoshis.
 
-  
-
 <p align="center">
-
 <img src="figures/lightning_network/lightning_5.png" alt="Multi-hop payment step 4">
 
 </p>
@@ -214,8 +193,8 @@ It is clear that *C* has made 10 satoshis, that *B* has made 5 satoshis in routi
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5OTczNTQ2NiwtNDEwODk1MjYwLC03OD
-E2MjY5OTUsLTE3OTk0NjIwMzksLTk3NjM3NTMzOCwtMjA4MjM0
-OTA3MywxNDUyNDI1NjU3LDE0NTU5NDEyNjAsMTg1NTc2OTU2M1
-19
+eyJoaXN0b3J5IjpbMjEwODcyMzAyLC00MTA4OTUyNjAsLTc4MT
+YyNjk5NSwtMTc5OTQ2MjAzOSwtOTc2Mzc1MzM4LC0yMDgyMzQ5
+MDczLDE0NTI0MjU2NTcsMTQ1NTk0MTI2MCwxODU1NzY5NTYzXX
+0=
 -->
