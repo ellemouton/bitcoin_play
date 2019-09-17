@@ -54,48 +54,33 @@ A different type of transaction called a multi-signature (multi-sig) transaction
 
 ### 1.3 Blockchain
 
-For a Bitcoin transaction to be valid, it must be broadcast to the entire Bitcoin network and this is done by including transactions in the blocks of a public blockchain. This enables any user of the system to validate any transaction and trace back the origins of the transaction inputs as can be seen in figure \ref{fig:blockchain}. For a transaction to be included into a block and mined,  it is necessary to incentives the miners by means of transaction fees. In the Bitcoin network, it takes approximately 10 minutes for a block to be mined and added to the blockchain. For these reasons publishing a transaction on the blockchain (an on-chain transaction) is both costly and slow. Using on-chain transactions for micropayment transactions is thus not feasible nor scalable \parencite{mastering_bitcoin}. Payment channels provide a way to perform fast and cheap off-chain transactions and these are discussed next.
-
-  
+For a Bitcoin transaction to be valid, it must be broadcast to the entire Bitcoin network and this is done by including transactions in the blocks of a public blockchain. This enables any user of the system to validate any transaction and trace back the origins of the transaction inputs as can be seen in figure 4. For a transaction to be included into a block and mined,  it is necessary to incentives the miners by means of transaction fees. In the Bitcoin network, it takes approximately 10 minutes for a block to be mined and added to the blockchain. For these reasons publishing a transaction on the blockchain (an on-chain transaction) is both costly and slow. Using on-chain transactions for micropayment transactions is thus not feasible nor scalable [1]. Payment channels provide a way to perform fast and cheap off-chain transactions and these are discussed next.
 
 <p align="center">
-
 <img src="figures/blockchain.png" alt="Blockchain">
 <label>Figure 4: Blockchain</label>
 </p>
 
-  
-
 ### 1.4 Payment Channels
 
-Payment channels provide a way for two parties to exchange an unlimited number of Bitcoin transactions and do so off-chain. In this section, the aim is to explain the basic setup and use of a payment channel. All details of these steps can be found in reference \parencite{mastering_bitcoin}.
-
-  
+Payment channels provide a way for two parties to exchange an unlimited number of Bitcoin transactions and do so off-chain. In this section, the aim is to explain the basic setup and use of a payment channel. All details of these steps can be found in reference [1].
 
 #### Step 1
 
-Two parties, *A* and *B*, decide to set up a payment channel and do this by each of them committing funds to a 2-of-2 multisig (see section \ref{sec:transactions}). Both parties sign this transaction and then broadcast it to the blockchain as an on-chain, funding transaction. This transaction and the future settlement transaction will be the only two transactions that need to be published to the blockchain. In the example in figure \ref{fig:pay_chan_1}, *A* commits 10 satoshis and *B* commits 5 satoshis to the channel.
-
-  
+Two parties, *A* and *B*, decide to set up a payment channel and do this by each of them committing funds to a 2-of-2 multisig (see section 1.2). Both parties sign this transaction and then broadcast it to the blockchain as an on-chain, funding transaction. This transaction and the future settlement transaction will be the only two transactions that need to be published to the blockchain. In the example in figure 5, *A* commits 10 satoshis and *B* commits 5 satoshis to the channel.
 
 <p align="center">
-
 <img src="figures/payment_channels/pay_chan_1.png" alt="Payment channels step 1">
-
+<label>Figure 5: Payment channels step 1</label>
 </p>
-
-  
 
 #### Step 2
 
 Once the funding transaction is mined in a block, off-chain exchanges between *A* and *B* can start. In the example shown in figure \ref{fig:pay_chan_2}, *A* decides to pay *B* 1 satoshi and so creates a commitment transaction that spends the funding transaction output and creates one output that pays 9 satoshis to *A* and another that pays 6 satoshis to *B*. *A* signs this transaction and sends it to *B*.
 
-  
-
 <p align="center">
-
 <img src="figures/payment_channels/pay_chan_2.png" alt="Payment channels step 2">
-
+<label>Figure 6: Payment channels step 1=2</label>
 </p>
 
   
@@ -260,7 +245,7 @@ It is clear that *C* has made 10 satoshis, that *B* has made 5 satoshis in routi
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzM2NTQzMDQ0LC00MTA4OTUyNjAsLTc4MT
+eyJoaXN0b3J5IjpbMTEzNTg5NzA2LC00MTA4OTUyNjAsLTc4MT
 YyNjk5NSwtMTc5OTQ2MjAzOSwtOTc2Mzc1MzM4LC0yMDgyMzQ5
 MDczLDE0NTI0MjU2NTcsMTQ1NTk0MTI2MCwxODU1NzY5NTYzXX
 0=
