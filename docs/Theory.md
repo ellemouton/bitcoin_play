@@ -43,7 +43,7 @@ For a Bitcoin transaction to be valid, it must be broadcast to the entire Bitcoi
 Payment channels provide a way for two parties to exchange an unlimited number of Bitcoin transactions and do so off-chain. In this section, the aim is to explain the basic setup and use of a payment channel. All details of these steps can be found in reference \parencite{mastering_bitcoin}.
 
 #### Step 1 
-Two parties, $A$ and $B$, decide to set up a payment channel and do this by each of them committing funds to a 2-of-2 multisig (see section \ref{sec:transactions}). Both parties sign this transaction and then broadcast it to the blockchain as an on-chain, funding transaction. This transaction and the future settlement transaction will be the only two transactions that need to be published to the blockchain. In the example in figure \ref{fig:pay_chan_1}, $A$ commits 10 satoshis and $B$ commits 5 satoshis to the channel.
+Two parties, *A* and *B*, decide to set up a payment channel and do this by each of them committing funds to a 2-of-2 multisig (see section \ref{sec:transactions}). Both parties sign this transaction and then broadcast it to the blockchain as an on-chain, funding transaction. This transaction and the future settlement transaction will be the only two transactions that need to be published to the blockchain. In the example in figure \ref{fig:pay_chan_1}, *A* commits 10 satoshis and *B* commits 5 satoshis to the channel.
 ![Payment channels step 1](figures/payment_channels/pay_chan_1.png)
 
 #### Step 2
@@ -94,9 +94,10 @@ Entity $B$ will sign the commitment transaction proposed by $A$ as it is clear t
 * **Output 3:** 10 satoshi to a HTLC that has two clauses and will be spendable by which ever clauses condition is first satisfied. The first clause pays $C$ if $C$ is able to produce the pre-image of $H$. The second clause refunds $B$ if a certain time period, $t$, has passed.
 
 $B$ signs this commitment transaction and presents it to $C$. See figure \ref{fig:light_2} for an illustration of this step.
-
 ![Multi-hop payment step 2](figures/lightning_network/lightning_3.png)
 
+#### Step 3
+$C$ receives the commitment transaction proposed by $B$ and sees that it is safe to sign since $C$ has access to the pre-image of $H$, $X$,  and can thus claim the corresponding HTLC output. $C$ signs the transaction and sends it back to $B$ along with $X$ so that $B$ can see that C can claim the 10 satoshi committed to the HTLC. Both $B$ and $C$ update their channel state to reflect this. See figure \ref{fig:light_3} for an illustration of this step.
 
 
 
@@ -104,7 +105,7 @@ $B$ signs this commitment transaction and presents it to $C$. See figure \ref{fi
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTM3ODc3MTgsLTk3NjM3NTMzOCwtMj
-A4MjM0OTA3MywxNDUyNDI1NjU3LDE0NTU5NDEyNjAsMTg1NTc2
-OTU2M119
+eyJoaXN0b3J5IjpbNTcyODUyMTU0LC05NzYzNzUzMzgsLTIwOD
+IzNDkwNzMsMTQ1MjQyNTY1NywxNDU1OTQxMjYwLDE4NTU3Njk1
+NjNdfQ==
 -->
