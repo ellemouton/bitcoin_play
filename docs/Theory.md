@@ -85,11 +85,20 @@ $A$ signs this commitment transaction and presents it to $B$. See figure \ref{fi
 
 #### Step 2
 Entity $B$ will sign the commitment transaction proposed by $A$ as it is clear that no money will be lost if it is not able to produce the hash pre-image and that it will gain 15 satoshis if it is able to produce the pre-image. $B$ then repeats a similar process with node $C$ and sets up a commitment transaction that spends the funding transaction of the $B-C$ channel. The outputs of this transaction are as follows:
-* 
+* **Output 1:** 10 satoshi to $C$
+* **Output 2:** 40 satoshi to $B$
+* **Output 3:** 10 satoshi to a HTLC that has two clauses and will be spendable by which ever clauses condition is first satisfied. The first clause pays $C$ if $C$ is able to produce the pre-image of $H$. The second clause refunds $B$ if a certain time period, $t$, has passed.
+
+$B$ signs this commitment transaction and presents it to $C$. See figure \ref{fig:light_2} for an illustration of this step.
+
+![Multi-hop payment step 2](figures/lightning_channel/lightning_3.png)
+
+
+
 
 [1] Andreas M. Antonopoulos.Mastering Bitcoin. ISBN 9781491954386. O’ReillyMedia, 2017
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg1NTI0MjkzLDE4NTU3Njk1NjNdfQ==
+eyJoaXN0b3J5IjpbMTQ1NTk0MTI2MCwxODU1NzY5NTYzXX0=
 -->
