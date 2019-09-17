@@ -21,7 +21,7 @@ Elliptic curve cryptography makes use of maths on an elliptic curve using number
 <p align="center">
 
 <img src="figures/bitcoin_curve.png" alt="Bitcoin Curve" width="400" >
-
+<label>Bitcoin Curve</label>
 </p>
 
   
@@ -288,7 +288,7 @@ It is clear that *C* has made 10 satoshis, that *B* has made 5 satoshis in routi
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU4ODAwMjYzMywtNDEwODk1MjYwLC03OD
+eyJoaXN0b3J5IjpbMTEyMjk2NjYyOSwtNDEwODk1MjYwLC03OD
 E2MjY5OTUsLTE3OTk0NjIwMzksLTk3NjM3NTMzOCwtMjA4MjM0
 OTA3MywxNDUyNDI1NjU3LDE0NTU5NDEyNjAsMTg1NTc2OTU2M1
 19
