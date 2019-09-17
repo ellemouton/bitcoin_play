@@ -40,17 +40,27 @@ Payment channels provide a way for two parties to exchange an unlimited number o
 
 #### Step 1 
 Two parties, $A$ and $B$, decide to set up a payment channel and do this by each of them committing funds to a 2-of-2 multisig (see section \ref{sec:transactions}). Both parties sign this transaction and then broadcast it to the blockchain as an on-chain, funding transaction. This transaction and the future settlement transaction will be the only two transactions that need to be published to the blockchain. In the example in figure \ref{fig:pay_chan_1}, $A$ commits 10 satoshis and $B$ commits 5 satoshis to the channel.
-
 ![Payment channels step 1](figures/payment_channels/pay_chan_1.png)
 
-#### Step 12
-Two parties, $A$ and $B$, decide to set up a payment channel and do this by each of them committing funds to a 2-of-2 multisig (see section \ref{sec:transactions}). Both parties sign this transaction and then broadcast it to the blockchain as an on-chain, funding transaction. This transaction and the future settlement transaction will be the only two transactions that need to be published to the blockchain. In the example in figure \ref{fig:pay_chan_1}, $A$ commits 10 satoshis and $B$ commits 5 satoshis to the channel.
+#### Step 2
+Once the funding transaction is mined in a block, off-chain exchanges between $A$ and $B$ can start. In the example shown in figure \ref{fig:pay_chan_2}, $A$ decides to pay $B$ 1 satoshi and so creates a commitment transaction that spends the funding transaction output and creates one output that pays 9 satoshis to $A$ and another that pays 6 satoshis to $B$. $A$ signs this transaction and sends it to $B$.
+![Payment channels step 2](figures/payment_channels/pay_chan_2.png)
 
-![Payment channels step 1](figures/payment_channels/pay_chan_1.png)
+#### Step 3
+ $B$ can analyse the commitment transaction and see that it would pay him 1 satoshi more than he had. $B$ then signs the transaction and sends it back to $A$. Both $A$ and $B$ now hold the valid commitment transaction that would correctly pay $A$ and $B$ if it were to be broadcast to the blockchain. But instead of broadcasting it, both parties store it and agree to update the channel state to reflect the new commitment transaction. Both parties have the ability to broadcast the valid commitment transaction to the blockchain if necessary. See figure \ref{fig:pay_chan_3}.
+![Payment channels step 3](figures/payment_channels/pay_chan_3.png)
+
+#### Step 4
+If $A$ want to pay $B$ another 1 satoshi, then $A$ creates a new commitment transaction which spends the same funding transaction and repeats the process of step 2 and 3. When $A$ and $B$ both sign the new commitment transaction then the previously created commitment transactions are made to be invalid (this is done using asymmetric revocation commitments which will not be discussed here). Both parties then store the new, valid commitment transaction and update the channel state accordingly. See figure \ref{fig:pay_chan_4}.
+![Payment channels step 4](figures/payment_channels/pay_chan_4.png)
+
+Using payment channels, parties can create an endless number of commitment transactions to pay each other back and forth and can do so without needing to consult the blockchain.
+
+### 1.4 Payment Channels
 
 [1] Andreas M. Antonopoulos.Mastering Bitcoin. ISBN 9781491954386. O’ReillyMedia, 2017
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2NDQyNTA4MCwxODU1NzY5NTYzXX0=
+eyJoaXN0b3J5IjpbLTExNjA3Nzg2MTMsMTg1NTc2OTU2M119
 -->
