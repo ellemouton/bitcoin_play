@@ -71,7 +71,7 @@ In this example, the following assumptions can be made. See Figure \ref{fig:ligh
 	* $B$: 20 + 50 = 70 satoshis
 	* $C$: 10 satoshis
 
-![Multi-hop payment set-up](figures/lightning_network/lightning_1.png)
+![Multi-hop payment set-up](figures/lighting_network/lightning_1.png)
 
 #### Step 1
 $A$ creates a new commitment transaction with $B$. This commitment transaction spends the funding transaction of the $A-B$ channel and has three outputs:
@@ -100,6 +100,6 @@ $B$ signs this commitment transaction and presents it to $C$. See figure \ref{fi
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwNzE3NTY4MSwxNDUyNDI1NjU3LDE0NT
+eyJoaXN0b3J5IjpbLTI5NjkyODQ0NywxNDUyNDI1NjU3LDE0NT
 U5NDEyNjAsMTg1NTc2OTU2M119
 -->
