@@ -99,13 +99,18 @@ $B$ signs this commitment transaction and presents it to $C$. See figure \ref{fi
 #### Step 3
 $C$ receives the commitment transaction proposed by $B$ and sees that it is safe to sign since $C$ has access to the pre-image of $H$, $X$,  and can thus claim the corresponding HTLC output. $C$ signs the transaction and sends it back to $B$ along with $X$ so that $B$ can see that C can claim the 10 satoshi committed to the HTLC. Both $B$ and $C$ update their channel state to reflect this. See figure \ref{fig:light_3} for an illustration of this step.
 
+![Multi-hop payment step 3](figures/lightning_network/lightning_4.png)
 
+#### Step 4
+$B$ receives pre-image, $X$, from $C$ and sees that it is now able to claim the 15 satoshis locked to the HTLC output form the commitment transaction proposed by $A$. $B$ then sends $X$ to $A$ and both $A$ and $B$ update their channel state to reflect the payments.  See figure \ref{fig:light_4} for an illustration of this step.
+The final total wallet balances are now as follows:
+*
 
 [1] Andreas M. Antonopoulos.Mastering Bitcoin. ISBN 9781491954386. O’ReillyMedia, 2017
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTcyODUyMTU0LC05NzYzNzUzMzgsLTIwOD
-IzNDkwNzMsMTQ1MjQyNTY1NywxNDU1OTQxMjYwLDE4NTU3Njk1
-NjNdfQ==
+eyJoaXN0b3J5IjpbLTE3OTk0NjIwMzksLTk3NjM3NTMzOCwtMj
+A4MjM0OTA3MywxNDUyNDI1NjU3LDE0NTU5NDEyNjAsMTg1NTc2
+OTU2M119
 -->
