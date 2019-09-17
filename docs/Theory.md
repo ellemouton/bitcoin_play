@@ -71,7 +71,7 @@ Once the funding transaction is mined in a block, off-chain exchanges between $A
 #### Step 4
 If $A$ want to pay $B$ another 1 satoshi, then $A$ creates a new commitment transaction which spends the same funding transaction and repeats the process of step 2 and 3. When $A$ and $B$ both sign the new commitment transaction then the previously created commitment transactions are made to be invalid (this is done using asymmetric revocation commitments which will not be discussed here). Both parties then store the new, valid commitment transaction and update the channel state accordingly. See figure \ref{fig:pay_chan_4}.
 <p align="center"> 
-<img src="figures/payment_channels/pay_chan_1.png" alt="Payment channels step 1">
+<img src="figures/payment_channels/pay_chan_4.png" alt="Payment channels step 4">
 </p>
 
 Using payment channels, parties can create an endless number of commitment transactions to pay each other back and forth and can do so without needing to consult the blockchain.
@@ -91,7 +91,9 @@ In this example, the following assumptions can be made. See Figure \ref{fig:ligh
 	* $B$: 20 + 50 = 70 satoshis
 	* $C$: 10 satoshis
 
-![Multi-hop payment set-up](figures/lightning_network/lightning_1.png)
+<p align="center"> 
+<img src="figures/lightning_network/lightning_1.png" alt="Multi-hop payment set-up">
+</p>
 
 #### Step 1
 $A$ creates a new commitment transaction with $B$. This commitment transaction spends the funding transaction of the $A-B$ channel and has three outputs:
@@ -101,7 +103,9 @@ $A$ creates a new commitment transaction with $B$. This commitment transaction s
 
 $A$ signs this commitment transaction and presents it to $B$. See figure \ref{fig:light_1} for an illustration of this step.
 
-![Multi-hop payment step 1](figures/lightning_network/lightning_2.png)
+<p align="center"> 
+<img src="figures/lightning_network/lightning_2.png" alt="Multi-hop payment step 1">
+</p>
 
 #### Step 2
 Entity $B$ will sign the commitment transaction proposed by $A$ as it is clear that no money will be lost if it is not able to produce the hash pre-image and that it will gain 15 satoshis if it is able to produce the pre-image. $B$ then repeats a similar process with node $C$ and sets up a commitment transaction that spends the funding transaction of the $B-C$ channel. The outputs of this transaction are as follows:
@@ -110,12 +114,17 @@ Entity $B$ will sign the commitment transaction proposed by $A$ as it is clear t
 * **Output 3:** 10 satoshi to a HTLC that has two clauses and will be spendable by which ever clauses condition is first satisfied. The first clause pays $C$ if $C$ is able to produce the pre-image of $H$. The second clause refunds $B$ if a certain time period, $t$, has passed.
 
 $B$ signs this commitment transaction and presents it to $C$. See figure \ref{fig:light_2} for an illustration of this step.
-![Multi-hop payment step 2](figures/lightning_network/lightning_3.png)
+
+<p align="center"> 
+<img src="figures/lightning_network/lightning_3.png" alt="Multi-hop payment step 2">
+</p>
 
 #### Step 3
 $C$ receives the commitment transaction proposed by $B$ and sees that it is safe to sign since $C$ has access to the pre-image of $H$, $X$,  and can thus claim the corresponding HTLC output. $C$ signs the transaction and sends it back to $B$ along with $X$ so that $B$ can see that C can claim the 10 satoshi committed to the HTLC. Both $B$ and $C$ update their channel state to reflect this. See figure \ref{fig:light_3} for an illustration of this step.
 
-![Multi-hop payment step 3](figures/lightning_network/lightning_4.png)
+<p align="center"> 
+<img src="figures/lightning_network/lightning_4.png" alt="Multi-hop payment step 3">
+</p>
 
 #### Step 4
 $B$ receives pre-image, $X$, from $C$ and sees that it is now able to claim the 15 satoshis locked to the HTLC output form the commitment transaction proposed by $A$. $B$ then sends $X$ to $A$ and both $A$ and $B$ update their channel state to reflect the payments.  See figure \ref{fig:light_4} for an illustration of this step.
@@ -126,13 +135,15 @@ The final total wallet balances are now as follows:
 
 It is clear that $C$ has made 10 satoshis, that $B$ has made 5 satoshis in routing fees and that $A$ has spent 15 satoshis and has successfully paid $C$ 10 satoshis.
 
-![Multi-hop payment step 4](figures/lightning_network/lightning_5.png)
+<p align="center"> 
+<img src="figures/lightning_network/lightning_5.png" alt="Multi-hop payment step 4">
+</p>
 
 [1] Andreas M. Antonopoulos.Mastering Bitcoin. ISBN 9781491954386. O’ReillyMedia, 2017
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTE5NzEyMjEsLTE3OTk0NjIwMzksLT
-k3NjM3NTMzOCwtMjA4MjM0OTA3MywxNDUyNDI1NjU3LDE0NTU5
-NDEyNjAsMTg1NTc2OTU2M119
+eyJoaXN0b3J5IjpbLTc4MTYyNjk5NSwtMTc5OTQ2MjAzOSwtOT
+c2Mzc1MzM4LC0yMDgyMzQ5MDczLDE0NTI0MjU2NTcsMTQ1NTk0
+MTI2MCwxODU1NzY5NTYzXX0=
 -->
