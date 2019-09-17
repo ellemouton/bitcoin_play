@@ -23,20 +23,21 @@ Bitcoin coins are chains of transactions that represent changes in ownership of 
 
 Figure \ref{fig:transactions} shows an example of the transactions involved if a user, Alice, wanted to pay another user, Bob. In this example Alice has private-key $k1$ with which she produced her public-key, $P1$ and Bob has private-key, $k2$, with which he produced public-key, $P2$. To pay Bob, Alice creates transaction TX2. TX2 has an input that references the output of transaction TX1 and Alice is able to sign this input due to the fact that the output in TX1 is addressed to her public key, $P1$. Since she owns the private-key that produced $P1$ she is able produce a valid signature which Bob can then verify. Alice constructs the output of TX2 so that it is spendable by anyone who has the private-key corresponding to public-key $P2$ which in this case would enable Bob to spend this output.
 
-![Public-private key asymmetric property](figures/transactions.jpg)
+![Transactions](figures/transactions.jpg)
 
 A different type of transaction called a multi-signature (multi-sig) transaction can also be formed. The output of such a transaction would require multiple signatures in order to be valid. Figure \ref{fig:multisig_tx} shows an example of such a transaction. In this example, the multi-sig transaction is transaction TX2 and the parties involved are Alice, with keys $P1$ and $k1$, and Bob, with keys $P2$ and $k2$. This transaction has two inputs, one of which references an output spendable by Alice and the other an output spendable by Bob. The output of the transaction is a 2-of-2 multi-sig script than is only spendable if the input that references it is signed by both Alice and Bob \parencite{mastering_bitcoin}\parencite{programming_bitcoin}. This type of transaction forms the basis of payment channels which are explained in section \ref{sec:pay_chan}.
 
-![Public-private key asymmetric property](figures/multisig_tx.png)
+![Multi-sig Transaction](figures/multisig_tx.png)
 
 ### 1.3 Blockchain
 
 For a Bitcoin transaction to be valid, it must be broadcast to the entire Bitcoin network and this is done by including transactions in the blocks of a public blockchain. This enables any user of the system to validate any transaction and trace back the origins of the transaction inputs as can be seen in figure \ref{fig:blockchain}. For a transaction to be included into a block and mined,  it is necessary to incentives the miners by means of transaction fees. In the Bitcoin network, it takes approximately 10 minutes for a block to be mined and added to the blockchain. For these reasons publishing a transaction on the blockchain (an on-chain transaction) is both costly and slow. Using on-chain transactions for micropayment transactions is thus not feasible nor scalable \parencite{mastering_bitcoin}. Payment channels provide a way to perform fast and cheap off-chain transactions and these are discussed next.
 
+![Blockchain](figures/blockchain.jpg)
 
 [1] Andreas M. Antonopoulos.Mastering Bitcoin. ISBN 9781491954386. O’ReillyMedia, 2017
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1NTc2OTU2M119
+eyJoaXN0b3J5IjpbMTQzMTkxOTQyMCwxODU1NzY5NTYzXX0=
 -->
