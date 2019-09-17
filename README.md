@@ -1,6 +1,9 @@
 -----------------------------------------------------------------------
 This repo is an exhibition of my Bitcoin journey.
 -----------------------------------------------------------------------
+=== Literature ===
+
+Check out docs/Theory.md for a condensed summary of Bitcoin, payment channels and the Lightning Network
 
 ===Requirements==
 
