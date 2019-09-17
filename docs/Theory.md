@@ -27,7 +27,9 @@ Bitcoin coins are chains of transactions that represent changes in ownership of 
 
 Figure \ref{fig:transactions} shows an example of the transactions involved if a user, Alice, wanted to pay another user, Bob. In this example Alice has private-key *k1* with which she produced her public-key, *P1* and Bob has private-key, *k2*, with which he produced public-key, *P2*. To pay Bob, Alice creates transaction TX2. TX2 has an input that references the output of transaction TX1 and Alice is able to sign this input due to the fact that the output in TX1 is addressed to her public key, *P1*. Since she owns the private-key that produced *P1* she is able produce a valid signature which Bob can then verify. Alice constructs the output of TX2 so that it is spendable by anyone who has the private-key corresponding to public-key *P2* which in this case would enable Bob to spend this output.
 
-![Transactions](figures/transactions.jpg)
+<p align="center"> 
+<img src="figures/transactions.jpg" alt="Transactions" width="200" >
+</p>
 
 A different type of transaction called a multi-signature (multi-sig) transaction can also be formed. The output of such a transaction would require multiple signatures in order to be valid. Figure \ref{fig:multisig_tx} shows an example of such a transaction. In this example, the multi-sig transaction is transaction TX2 and the parties involved are Alice, with keys *P1* and *k1*, and Bob, with keys *P2* and *k2*. This transaction has two inputs, one of which references an output spendable by Alice and the other an output spendable by Bob. The output of the transaction is a 2-of-2 multi-sig script than is only spendable if the input that references it is signed by both Alice and Bob \parencite{mastering_bitcoin}\parencite{programming_bitcoin}. This type of transaction forms the basis of payment channels which are explained in section \ref{sec:pay_chan}.
 
@@ -104,13 +106,19 @@ $C$ receives the commitment transaction proposed by $B$ and sees that it is safe
 #### Step 4
 $B$ receives pre-image, $X$, from $C$ and sees that it is now able to claim the 15 satoshis locked to the HTLC output form the commitment transaction proposed by $A$. $B$ then sends $X$ to $A$ and both $A$ and $B$ update their channel state to reflect the payments.  See figure \ref{fig:light_4} for an illustration of this step.
 The final total wallet balances are now as follows:
-*
+* $A$: 85 satoshis
+* $B$: 35 + 40 = 70 satoshis
+* $C$: 20 satoshis
+
+It is clear that $C$ has made 10 satoshis, that $B$ has made 5 satoshis in routing fees and that $A$ has spent 15 satoshis and has successfully paid $C$ 10 satoshis.
+
+![Multi-hop payment step 4](figures/lightning_network/lightning_5.png)
 
 [1] Andreas M. Antonopoulos.Mastering Bitcoin. ISBN 9781491954386. O’ReillyMedia, 2017
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwOTQ4ODkzNywtMTc5OTQ2MjAzOSwtOT
+eyJoaXN0b3J5IjpbMTI2ODk0Mzg1OCwtMTc5OTQ2MjAzOSwtOT
 c2Mzc1MzM4LC0yMDgyMzQ5MDczLDE0NTI0MjU2NTcsMTQ1NTk0
 MTI2MCwxODU1NzY5NTYzXX0=
 -->
