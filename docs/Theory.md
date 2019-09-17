@@ -76,7 +76,7 @@ Two parties, *A* and *B*, decide to set up a payment channel and do this by each
 
 #### Step 2
 
-Once the funding transaction is mined in a block, off-chain exchanges between *A* and *B* can start. In the example shown in figure 5.2 *A* decides to pay *B* 1 satoshi and so creates a commitment transaction that spends the funding transaction output and creates one output that pays 9 satoshis to *A* and another that pays 6 satoshis to *B*. *A* signs this transaction and sends it to *B*.
+Once the funding transaction is mined in a block, off-chain exchanges between *A* and *B* can start. In the example shown in figure 5.2, *A* decides to pay *B* 1 satoshi and so creates a commitment transaction that spends the funding transaction output and creates one output that pays 9 satoshis to *A* and another that pays 6 satoshis to *B*. *A* signs this transaction and sends it to *B*.
 
 <p align="center">
 <img src="figures/payment_channels/pay_chan_2.png" alt="Payment channels step 2">
@@ -191,7 +191,7 @@ It is clear that *C* has made 10 satoshis, that *B* has made 5 satoshis in routi
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2MzMxOTc0OCw4Mjc5MDgyMTgsLTQxMD
+eyJoaXN0b3J5IjpbMTA4NzI5MzQ3OCw4Mjc5MDgyMTgsLTQxMD
 g5NTI2MCwtNzgxNjI2OTk1LC0xNzk5NDYyMDM5LC05NzYzNzUz
 MzgsLTIwODIzNDkwNzMsMTQ1MjQyNTY1NywxNDU1OTQxMjYwLD
 E4NTU3Njk1NjNdfQ==
