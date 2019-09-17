@@ -13,18 +13,12 @@ Bitcoin is a cryptocurrency that allows people to send value (in Bitcoin) to one
 
 ### 1.1 Elliptic Curve Cryptography
 
-Elliptic curve cryptography makes use of maths on an elliptic curve using numbers defined over a finite field [2]. Figure \ref{fig:ecc_curve} shows the Bitcoin elliptic curve plotted over real-numbers. On such a curve, point scalar multiplication is easy to calculate but point scalar division is impossibly hard to calculate.
-
-  
-
+Elliptic curve cryptography makes use of maths on an elliptic curve using numbers defined over a finite field [2]. Figure 1 shows the Bitcoin elliptic curve plotted over real-numbers. On such a curve, point scalar multiplication is easy to calculate but point scalar division is impossibly hard to calculate.
 
 <p align="center">
-
 <img src="figures/bitcoin_curve.png" alt="Bitcoin Curve" width="400" >
-<label>Bitcoin Curve</label>
+<label>Figure 1: Bitcoin Curve</label>
 </p>
-
-  
 
 For example, if a publicly known generator point on the curve is *G=(gx, gy)* and this point is then multiplied by a constant *k* then another point on the curve can be found: *P=(px, py)*. Due to the fact that this maths is evaluated over a finite field, it is easy to find point *P* if both *G* and *k* are known but it is not known how to calculate *k* if *P* and *G* are known. This asymmetric property is illustrated in figure \ref{fig:asymmetry_eqn}.
 
@@ -288,7 +282,7 @@ It is clear that *C* has made 10 satoshis, that *B* has made 5 satoshis in routi
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyMjk2NjYyOSwtNDEwODk1MjYwLC03OD
+eyJoaXN0b3J5IjpbLTkwMjIwNDQ2MSwtNDEwODk1MjYwLC03OD
 E2MjY5OTUsLTE3OTk0NjIwMzksLTk3NjM3NTMzOCwtMjA4MjM0
 OTA3MywxNDUyNDI1NjU3LDE0NTU5NDEyNjAsMTg1NTc2OTU2M1
 19
