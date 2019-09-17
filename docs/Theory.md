@@ -103,7 +103,7 @@ If *A* want to pay *B* another 1 satoshi, then *A* creates a new commitment tran
 
 Using payment channels, parties can create an endless number of commitment transactions to pay each other back and forth and can do so without needing to consult the blockchain.
 
-### 1.4 The Lightning Network
+### 1.5 The Lightning Network
 
 The Lightning Network is made up of nodes connected by payment channels and enables micropayments to occur between any two nodes on the network as long as there is a path of payment channels between these nodes. The Lightning Network uses a combination of payment channel technology and a type of smart contract called a Hash Time Lock Contract (HTLC). A simple example will be used to explain how the Lighting Network can be used for secure payments across the peer-to-peer network. The details of this section can be found in [1].
 
@@ -191,8 +191,8 @@ It is clear that *C* has made 10 satoshis, that *B* has made 5 satoshis in routi
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzI1NDk2NDQ3LDYwNjMxMzc2Nyw4Mjc5MD
-gyMTgsLTQxMDg5NTI2MCwtNzgxNjI2OTk1LC0xNzk5NDYyMDM5
-LC05NzYzNzUzMzgsLTIwODIzNDkwNzMsMTQ1MjQyNTY1NywxND
-U1OTQxMjYwLDE4NTU3Njk1NjNdfQ==
+eyJoaXN0b3J5IjpbLTE3NDMwODQ2MDgsMzI1NDk2NDQ3LDYwNj
+MxMzc2Nyw4Mjc5MDgyMTgsLTQxMDg5NTI2MCwtNzgxNjI2OTk1
+LC0xNzk5NDYyMDM5LC05NzYzNzUzMzgsLTIwODIzNDkwNzMsMT
+Q1MjQyNTY1NywxNDU1OTQxMjYwLDE4NTU3Njk1NjNdfQ==
 -->
