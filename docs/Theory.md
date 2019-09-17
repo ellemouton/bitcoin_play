@@ -109,56 +109,37 @@ The Lightning Network is made up of nodes connected by payment channels and enab
 
 #### Example
 
-In this example, the following assumptions can be made. See Figure \ref{fig:light_set_up} for a visualisation of the initial set-up.
+In this example, the following assumptions can be made. See Figure 6.1 for a visualisation of the initial set-up.
 
 * Party *A* wants to pay party *C* 10 satoshis
-
 * Payment channels exists between *A* and *B* (100 to *A* and *20* to B) and another between *B* and *C* (50 to *B* and 10 to *C*)
-
 * *B* charges a 5 satoshi routing fee
-
 * *A* has the hash, *H*, which is the hash of a secret pre-image value, *X*, such that *H* = hash(*X*)
-
 * *A* knows that *C*, and only *C*, has access to *X*.
-
 * The initial total wallet balances of each node is as follows:
-
 * *A*: 100 satoshis
-
 * *B*: 20 + 50 = 70 satoshis
-
 * *C*: 10 satoshis
 
-  
-
 <p align="center">
-
 <img src="figures/lightning_network/lightning_1.png" alt="Multi-hop payment set-up">
-
+<label>Figure 6.1: Multi-hop payment set-up</label>
 </p>
 
   
-
 #### Step 1
 
 *A* creates a new commitment transaction with *B*. This commitment transaction spends the funding transaction of the *A-B* channel and has three outputs:
 
 * **Output 1**: 20 satoshi to *B*
-
 * **Output 2**: 85 satoshi to *A*
-
 * **Output 3**: 15 satoshi to a HTLC that has two clauses and will be spendable by which ever clauses condition is first satisfied. The first clause pays *B* if *B* is able to produce the pre-image of *H*. The second clause refunds *A* if a certain time period, *t*, has passed.
 
-  
-
-*A* signs this commitment transaction and presents it to *B*. See figure \ref{fig:light_1} for an illustration of this step.
-
-  
+*A* signs this commitment transaction and presents it to *B*. See figure 6.2 for an illustration of this step.
 
 <p align="center">
-
 <img src="figures/lightning_network/lightning_2.png" alt="Multi-hop payment step 1">
-
+<label>Figure 6.2: Multi-hop payment step 1</label>
 </p>
 
   
@@ -233,7 +214,7 @@ It is clear that *C* has made 10 satoshis, that *B* has made 5 satoshis in routi
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyMjk3NDk1NCwtNDEwODk1MjYwLC03OD
+eyJoaXN0b3J5IjpbMTg5OTczNTQ2NiwtNDEwODk1MjYwLC03OD
 E2MjY5OTUsLTE3OTk0NjIwMzksLTk3NjM3NTMzOCwtMjA4MjM0
 OTA3MywxNDUyNDI1NjU3LDE0NTU5NDEyNjAsMTg1NTc2OTU2M1
 19
