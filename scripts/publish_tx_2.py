@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, '/Users/ellemouton/Documents/2019/Sem2/EEE4022S/code/modules')
+sys.path.insert(0, '/Users/ellemouton/Documents/bitcoin/code/modules')
 from io import BytesIO
 from bitcoin.rpc import RawProxy
 import ecc
@@ -95,7 +95,7 @@ def get_output_info(num_outputs, amount_available):
         if(target_address[0]=='2'):
             print("This recipient is a P2SH")
             target_script = p2sh_script(target_h160)
-            tx_outd.append(TxOut(amount = target_amount, script_pubkey = target_script))
+            tx_outs.append(TxOut(amount = target_amount, script_pubkey = target_script))
         else:
             print("This recipient is a P2PKH")
             target_script = p2pkh_script(target_h160)
@@ -135,15 +135,10 @@ tx_obj = Tx(1, tx_ins, tx_outs, 0, True)
 
 ''' Signing the inputs '''
 for i in range(len(tx_ins)):
-    z = tx_obj.sig_hash(i)
-
-    private_key, public_key = get_keys_for_input(i)
-
-    der = private_key.sign(z).der()
-    sig = der + SIGHASH_ALL.to_bytes(1, 'big')
-    sec = public_key.sec()
-    script_sig = Script([sig, sec])
-    tx_obj.tx_ins[i].script_sig = script_sig
+    print("Enter your private key passphrase to prove that you can sign input "+str(i)+":")
+    password = getpass.getpass('Passphrase:')
+    private_key = PrivateKey(little_endian_to_int(hash256(str.encode(password))))
+    tx_obj.sign_input(i, private_key)
 
 
 

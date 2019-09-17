@@ -21,9 +21,6 @@ def is_unspent(txid, index):
     return p.gettxout(txid, index)==None
 
 
-
-
-
 tx_ins = []
 amount_available = 0
 
@@ -101,6 +98,7 @@ if(tx_obj.verify()):
     print("===>publishing the following transaction:")
     tx_serial = tx_obj.serialize().hex()
     print(tx_serial)
+    #p.decoderawtransaction(tx_serial)
     p.sendrawtransaction(tx_serial)
     print("===>transaction successfully published<====")
 else:
