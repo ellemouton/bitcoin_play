@@ -87,9 +87,9 @@ For a Bitcoin transaction to be valid, it must be broadcast to the entire Bitcoi
   
 
 <p align="center">
-<label>Blockchain</label>
-<img src="figures/blockchain.png" alt="Blockchain">
 
+<img src="figures/blockchain.png" alt="Blockchain">
+<label>Blockchain</label>
 </p>
 
   
@@ -288,7 +288,7 @@ It is clear that *C* has made 10 satoshis, that *B* has made 5 satoshis in routi
 
 [2] Jimmy Song.Programming Bitcoin. ISBN 9781492031499. O’Reilly Media, 2017
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzODEwNTE2MSwtNDEwODk1MjYwLC03OD
+eyJoaXN0b3J5IjpbMTU4ODAwMjYzMywtNDEwODk1MjYwLC03OD
 E2MjY5OTUsLTE3OTk0NjIwMzksLTk3NjM3NTMzOCwtMjA4MjM0
 OTA3MywxNDUyNDI1NjU3LDE0NTU5NDEyNjAsMTg1NTc2OTU2M1
 19
